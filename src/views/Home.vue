@@ -12,7 +12,7 @@ import TopArticle from '@/components/TopArticle'
 import BlogPosts from '../components/BlogPosts.vue'
 import AppFooter from '../components/Footer.vue'
 export default {
-    name: 'HomePage',
+    name: 'HomeView',
     components: {
         TopArticle,
         BlogPosts,
