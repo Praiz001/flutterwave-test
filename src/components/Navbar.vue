@@ -1,7 +1,9 @@
 <template>
   <div class="app__navbar">
     <div class="app__navbar-logo">
-      <img src="@/assets/img/Logo1.png" alt="Logo" />
+      <router-link to="/">
+        <img src="@/assets/img/Logo1.png" alt="Logo" />
+      </router-link>
     </div>
     <ul class="app__navbar-links">
       <li>
@@ -120,7 +122,6 @@
 </template>
 
 <script>
-
 export default {
   name: "NavBar",
 };
@@ -152,6 +153,4 @@ export default {
     }
   }
 }
-
-
 </style>

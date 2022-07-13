@@ -1,7 +1,7 @@
 <template>
 <div class="app__articlecard ">
     <div v-for="item in posts" :key="item.index" >
-        <ArticleCard :data="item" />
+        <ArticleCard @goToNext="this.$router.push('Details')" :data="item" />
     </div>
 </div>
 </template>

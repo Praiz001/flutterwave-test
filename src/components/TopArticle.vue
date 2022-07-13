@@ -23,7 +23,7 @@
             </p>
             <div class="app__toparticle-body_footer">
                 <p>3 Min Read</p>
-                <button>
+                <button @click="this.$router.push('Details')">
                     <span>Read Full</span>
                     <span>
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

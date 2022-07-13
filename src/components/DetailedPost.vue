@@ -1,13 +1,15 @@
 <template>
   <div class="app__detailedpost">
     <div class="app__detailedpost-tags">
-      <p>By Ryan Jackson</p>
-      <p>2 Month Ago</p>
+      <p class="app__detailedpost-tags_name">By Ryan Jackson</p>
+      <p class="app__detailedpost-tags_time">2 Month Ago</p>
     </div>
-    <h1>Optimizing CSS for faster page loads</h1>
-    <div>
-      <section>
-        <p>
+    <h1 class="app__detailedpost-title">
+      Optimizing CSS for faster page loads
+    </h1>
+    <div class="app__detailedpost-content">
+      <section class="app__detailedpost-content_section1">
+        <p class="app__detailedpost-content_section1-desc">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc non
           blandit massa enim. Pulvinar sapien et ligula ullamcorper malesuada
@@ -27,11 +29,11 @@
           vulputate odio ut. Nulla aliquet enim tortor at auctor urna.
         </p>
       </section>
-      <div>
-        <img src="" alt="" />
+      <div class="app__detailedpost-content_image">
+        <img src="../assets/img/Safari.png" alt="blog photo" width="510px" height="327px" />
       </div>
-      <section>
-        <p>
+      <section class="app__detailedpost-content_section2">
+        <p class="app__detailedpost-content_section1-desc">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc non
           blandit massa enim. Pulvinar sapien et ligula ullamcorper malesuada
@@ -71,4 +73,56 @@ export default {
 </script>
 
 <style lang='scss' scoped >
+.app__detailedpost {
+  max-width: 1144px;
+  margin: 0 auto;
+
+  .app__detailedpost-tags{
+    display: flex;
+    margin-top: 91px;
+    gap: 4px;
+
+    :nth-child(1){
+      font-size: 12;
+      line-height: 14.32px;
+      font-weight: 500;
+      color: #4B4B4B;
+    }
+
+    :nth-child(2){
+      font-size: 12;
+      line-height: 14.32px;
+      font-weight: 500;
+      color: #6E6E6E;
+    }
+  }
+
+  .app__detailedpost-title{
+    margin-top: 10px;
+    font-size: 32px;
+    line-height: 38.19px;
+    font-weight: 900;
+    color: #2C2C2C;
+  }
+
+  .app__detailedpost-content {
+    margin-top: 23px;
+
+    .app__detailedpost-content_section1-desc,
+    .app__detailedpost-content_section2-desc{
+      font-size: 14px;
+      line-height: 21px;
+      font-weight: 400;
+      color: #6E6E6E;
+    }
+
+    .app__detailedpost-content_image{
+      display: flex;
+      justify-content: center;
+      margin: 30px 0px;
+    }
+  }
+
+
+}
 </style>

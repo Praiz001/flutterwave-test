@@ -16,7 +16,7 @@
                 <div class="app__articlecard-bottom_footer">
                     <p>{{ data.duration}}</p>
                     <div>
-                    <button>
+                    <button @click="$emit('goToNext')">
                         {{ data.action}}
                         <span>
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -62,7 +62,7 @@ export default {
         .app__articlecard-bottom_tags {
             display: flex;
             gap: 4px;
-            // margin-top: 16px;
+            margin-top: 16px;
 
             p:nth-child(1){
                 font-weight: 500;
@@ -95,10 +95,12 @@ export default {
         }
 
         .app__articlecard-bottom_desc{
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 400;
             line-height: 21px;
-            color: #6E6E6E;   
+            color: #6E6E6E;
+            width: 330px;
+            height: 74px;
         }
 
         .app__articlecard-bottom_footer {
