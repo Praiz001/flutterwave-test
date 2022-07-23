@@ -11,6 +11,7 @@
     "@vue/compiler-sfc": "^3.2.37",
     "axios": "^0.27.2",
     "core-js": "^3.8.3",
+    "flutterwave-vue-v3": "^1.0.9",
     "vue": "^3.2.37",
     "vue-router": "^4.1.2",
     "vuex": "^4.0.2"

@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="app__toparticle" v-for="item in posts" :key="item.index">
+    <div class="app__toparticle" v-if="posts" >
           <div class="app__toparticle-head">
             <!--<p class="app__toparticle-head_symbol">🚀</p>
             <p class="app__toparticle-head_title">Optimizing CSS for faster page loads </p>
@@ -9,25 +9,24 @@
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M232.109 4.3125C276.438 -6.88824 330.298 3.44721 359.515 38.6294C387.769 72.6521 378.198 123.443 366.454 166.086C357.684 197.93 327.794 215.099 304.474 238.48C281.106 261.91 265.049 297.703 232.109 300.784C197.846 303.989 174.58 270.694 144.817 253.413C94.171 224.007 -3.90965 224.529 0.120471 166.086C4.25834 106.081 106.76 124.426 156.084 90.0307C188.647 67.3231 193.623 14.0367 232.109 4.3125Z" fill="#E64611"/>
                 </svg>
             </span> -->
-            <img :src="latestPost.jetpack_featured_media_url" alt="card photo" width="500" height="250"  >
-            <!-- item.jetpack_featured_media_url -->
+            <img :src="posts.jetpack_featured_media_url" alt="card photo" width="500" height="250">
         </div>  
         <div class="app__toparticle-body">
             <div class="app__toparticle-body_tags">
-                <p>{{latestPost.parsely.meta.author[0].name }}</p>
+                <p>{{posts.parsely.meta.author[0].name }}</p>
                 <p>.</p>
-                <p>{{latestPost.parsely.meta.datePublished }}</p>
+                <p>{{posts.parsely.meta.datePublished }}</p>
             </div>
-            <h4 class="app__toparticle-body_title">{{ latestPost.title.rendered }} </h4>
+            <h4 class="app__toparticle-body_title">{{ posts.title.rendered }} </h4>
             <p class="app__toparticle-body_content">
-                {{ latestPost.excerpt.rendered }}
+                {{ posts.excerpt.rendered }}
             </p>
             <div class="app__toparticle-body_footer">
                 <p>3 Min Read</p>
                 
                 <button>
                     <!-- @click="this.$router.push('Details')" -->
-                    <router-link :to="{name: 'postdetails', params: {id: latestPost.id } }">
+                    <router-link :to="{name: 'postdetails', params: {id: posts.id } }">
                     <span>Read Full</span>
                     <span>
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -50,12 +49,14 @@ export default {
     name: 'TopArticle',
     computed: {
         posts() {
-          return this.$store.state.posts;
+            console.log("string", this.$store.state.posts)
+          return this.$store.state.posts[0];
+          
         },
 
-        latestPost() {
-            return this.posts[0] || {}
-        },
+        // latestPost() {
+        //     return this.posts[0] || {}
+        // },
     },
     mounted(){
         this.$store.dispatch('getPosts');

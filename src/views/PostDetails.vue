@@ -24,9 +24,10 @@
       </section>
     </div>
   </div> -->
+  
   <div>
-    <DetailedPost v-if="post" :data="post" />
-    <MoreArticles />
+      <DetailedPost v-if="post" :data="post" />
+      <MoreArticles />
   </div>
 </template>
 

@@ -4597,6 +4597,7 @@ __metadata:
     core-js: ^3.8.3
     eslint: ^7.32.0
     eslint-plugin-vue: ^8.0.3
+    flutterwave-vue-v3: ^1.0.9
     sass: ^1.53.0
     sass-loader: ^13.0.2
     vue: ^3.2.37
@@ -4605,6 +4606,15 @@ __metadata:
     webpack: ^5.73.0
   languageName: unknown
   linkType: soft
+
+"flutterwave-vue-v3@npm:^1.0.9":
+  version: 1.0.9
+  resolution: "flutterwave-vue-v3@npm:1.0.9"
+  peerDependencies:
+    vue: ^2.6.14
+  checksum: 659b8fbec8361feb81b5a24a83540381c51ba8b35bb8b0471d953e1c32da329d30590d3c5c6bda60fe6e5a967a6a0418a04257b3d7142fabd9d20ac48b8f336c
+  languageName: node
+  linkType: hard
 
 "follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.14.9":
   version: 1.15.1
