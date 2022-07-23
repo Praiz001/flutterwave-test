@@ -1,67 +1,26 @@
 <template>
   <div class="app__detailedpost">
     <div class="app__detailedpost-tags">
-      <p class="app__detailedpost-tags_name">By Ryan Jackson</p>
-      <p class="app__detailedpost-tags_time">2 Month Ago</p>
+      <p class="app__detailedpost-tags_name">{{data.parsely.meta.author[0].name }}</p>
+      <p class="app__detailedpost-tags_time">{{data.parsely.meta.datePublished }}</p>
     </div>
     <h1 class="app__detailedpost-title">
-      Optimizing CSS for faster page loads
+      {{ data.title.rendered }}
     </h1>
     <div class="app__detailedpost-content">
+      <div class="app__detailedpost-content_image">
+        <img :src="data.jetpack_featured_media_url" alt="blog photo" width="500" height="250" />
+      </div>
       <section class="app__detailedpost-content_section1">
         <p class="app__detailedpost-content_section1-desc">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc non
-          blandit massa enim. Pulvinar sapien et ligula ullamcorper malesuada
-          proin libero nunc consequat. Aliquam sem fringilla ut morbi tincidunt
-          augue interdum velit. Tellus elementum sagittis vitae et leo duis ut
-          diam. Eget nullam non nisi est sit amet. Dignissim suspendisse in est
-          ante in nibh mauris. Nec feugiat in fermentum posuere urna. Diam in
-          arcu cursus euismod quis viverra. Facilisis mauris sit amet massa
-          vitae tortor condimentum lacinia. Diam quam nulla porttitor massa id
-          neque aliquam vestibulum morbi. Sed egestas egestas fringilla
-          phasellus faucibus scelerisque eleifend. Sed elementum tempus egestas
-          sed sed risus pretium quam vulputate. Lacus sed turpis tincidunt id
-          aliquet risus feugiat in ante. Viverra nibh cras pulvinar mattis nunc
-          sed blandit libero. Morbi tincidunt augue interdum velit euismod in.
-          Accumsan lacus vel facilisis volutpat est velit egestas dui. Erat
-          pellentesque adipiscing commodo elit at imperdiet. Quis risus sed
-          vulputate odio ut. Nulla aliquet enim tortor at auctor urna.
+          {{ data.content.rendered }}
         </p>
       </section>
-      <div class="app__detailedpost-content_image">
-        <img src="../assets/img/Safari.png" alt="blog photo" width="510px" height="327px" />
-      </div>
-      <section class="app__detailedpost-content_section2">
+      <!-- <section class="app__detailedpost-content_section2">
         <p class="app__detailedpost-content_section1-desc">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc non
-          blandit massa enim. Pulvinar sapien et ligula ullamcorper malesuada
-          proin libero nunc consequat. Aliquam sem fringilla ut morbi tincidunt
-          augue interdum velit. Tellus elementum sagittis vitae et leo duis ut
-          diam. Eget nullam non nisi est sit amet. Dignissim suspendisse in est
-          ante in nibh mauris. Nec feugiat in fermentum posuere urna. Diam in
-          arcu cursus euismod quis viverra. Facilisis mauris sit amet massa
-          vitae tortor condimentum lacinia. Diam quam nulla porttitor massa id
-          neque aliquam vestibulum morbi. Sed egestas egestas fringilla
-          phasellus faucibus scelerisque eleifend. Sed elementum tempus egestas
-          sed sed risus pretium quam vulputate. Lacus sed turpis tincidunt id
-          aliquet risus feugiat in ante. Viverra nibh cras pulvinar mattis nunc
-          sed blandit libero. Morbi tincidunt augue interdum velit euismod in.
-          Accumsan lacus vel facilisis volutpat est velit egestas dui. Erat
-          pellentesque adipiscing commodo elit at imperdiet. Quis risus sed
-          vulputate odio ut. Nulla aliquet enim tortor at auctor urna. <br />
-          Proin fermentum leo vel orci porta non pulvinar neque. In egestas erat
-          imperdiet sed euismod nisi porta lorem. Metus vulputate eu scelerisque
-          felis imperdiet proin fermentum. Luctus venenatis lectus magna
-          fringilla. Nunc scelerisque viverra mauris in aliquam. Et molestie ac
-          feugiat sed lectus vestibulum mattis. Sem et tortor consequat id porta
-          nibh venenatis cras sed. Sed felis eget velit aliquet sagittis id.
-          Auctor neque vitae tempus quam pellentesque nec nam aliquam sem.
-          Tincidunt ornare massa eget egestas purus viverra accumsan in. Aliquet
-          lectus proin nibh nisl condime.
+          {{ data.excerpt.rendered }}
         </p>
-      </section>
+      </section> -->
     </div>
   </div>
 </template>
@@ -69,6 +28,15 @@
 <script>
 export default {
   name: "DetailedPost",
+  props: ['data'],
+  computed:{
+      post() {
+          return this.$store.state.post;
+      },
+    },
+    mounted(){
+      this.$store.dispatch("getDetailPost", this.id);
+    }
 };
 </script>
 

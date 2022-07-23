@@ -8,7 +8,8 @@
     <ul class="app__navbar-links">
       <li>
         <a href="http://">
-          <svg
+          <img src="@/assets/svg/Figma.svg" alt="">
+          <!-- <svg
             width="22"
             height="18"
             viewBox="0 0 22 18"
@@ -22,7 +23,7 @@
               stroke-linecap="round"
               stroke-linejoin="round"
             />
-          </svg>
+          </svg> -->
         </a>
       </li>
       <li>

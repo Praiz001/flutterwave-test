@@ -1,23 +1,25 @@
 <template>
         <div class="app__articlecard ">
             <div class="app__articlecard-image">
-                <img :src="data.src" alt="card photo">
+                <img :src="post.jetpack_featured_media_url" alt="card photo" width="500" height="200" >
             </div>
             <div class="app__articlecard-bottom">
                 <div class="app__articlecard-bottom_tags">
-                    <p>{{ data.stack}}</p><p>.</p><p>{{ data.time}}</p>
+                    <p>{{post.parsely.meta.author[0].name }}</p><p>.</p><p>{{post.parsely.meta.datePublished }}</p>
                 </div>
                 <div class="app__articlecard-bottom_title">
-                    {{ data.title}}
+                    {{ post.title.rendered }}
                 </div>
                 <div class="app__articlecard-bottom_desc">
-                    {{ data.desc}}
+                    {{ post.excerpt.rendered }}
                 </div>
                 <div class="app__articlecard-bottom_footer">
-                    <p>{{ data.duration}}</p>
+                    <p>12 Min Read</p>
                     <div>
-                    <button @click="$emit('goToNext')">
-                        {{ data.action}}
+                    <button >
+                        <!-- @click="$emit('goToNext')" -->
+                        <router-link :to="{name: 'postdetails', params: {id: post.id } }">
+                        Read Full
                         <span>
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M4.16669 10H15.8334" stroke="#1473E6" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
@@ -25,6 +27,7 @@
                             <path d="M12.5 6.66667L15.8333 10" stroke="#1473E6" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </span>
+                        </router-link>
                     </button>
 
                     </div>
@@ -37,9 +40,7 @@
 <script>
 export default {
     name:'ArticleCard',
-    props: {
-        data: Object
-    }
+    props: ['post']
 }
 </script>
 
